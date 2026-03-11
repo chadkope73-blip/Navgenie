@@ -1,108 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Navgenie | InTandem Toolbelt Guide</title>
+<meta name="description" content="Navgenie is the landing page for the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, and situational awareness.">
+<meta name="theme-color" content="#0f1416">
+
+<link rel="icon" href="logo.png">
+
 <style>
 :root{
 --bg1:#0b1220;
 --bg2:#13233f;
---card:#142033cc;
+--card:rgba(20,32,51,.82);
 --line:#2a3d63;
 --text:#e8eefc;
 --muted:#a9b7d3;
 --accent:#8dd3ff;
 --accent2:#ffd98a;
---purple:#c7b0ff;
+--good:#65d98f;
+--maybe:#ffd166;
+--bad:#ff8a80;
+--panel:#0d1727;
 }
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box;
+}
+
 body{
 font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 background:
-linear-gradient(rgba(11,18,32,.82),rgba(11,18,32,.88)),
+linear-gradient(rgba(11,18,32,.45),rgba(11,18,32,.55)),
 url("/topo-bg.jpg");
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
 color:var(--text);
+text-align:center;
 margin:0;
 padding:20px;
 min-height:100vh;
 }
-.container{max-width:900px;margin:0 auto}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
 .hero{
-position:relative;
-overflow:hidden;
+background:var(--card);
+padding:25px;
+border-radius:24px;
 border:1px solid var(--line);
-border-radius:28px;
-padding:26px;
-margin-bottom:18px;
-background:linear-gradient(180deg, rgba(20,32,51,.86), rgba(20,32,51,.74));
-backdrop-filter:blur(10px);
-box-shadow:0 20px 60px rgba(0,0,0,.32);
-}
-.brand{display:flex;align-items:center;gap:14px}
-.logo-large{display:flex;justify-content:center;margin-bottom:14px}
-.logo-large img{width:120px;height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
-.eyebrow{font-size:.85rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.05em}
-h1{margin:4px 0 6px;font-size:2rem}
-.subtitle{color:var(--muted);max-width:620px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.card{
-background:rgba(20,32,51,.82);
-border:1px solid var(--line);
-border-radius:22px;
-padding:18px;
 backdrop-filter:blur(8px);
+box-shadow:0 16px 40px rgba(0,0,0,.25);
+margin-bottom:20px;
 }
-.section-title{color:var(--accent2);margin-bottom:8px}
+
+.logo{
+max-width:180px;
+margin-bottom:20px;
+filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
+}
+
+.eyebrow{
+font-size:.85rem;
+color:var(--accent2);
+text-transform:uppercase;
+letter-spacing:.05em;
+margin-bottom:8px;
+}
+
+h1{
+color:var(--accent2);
+margin:0 0 10px;
+font-size:2rem;
+}
+
+.subtitle{
+color:var(--muted);
+line-height:1.5;
+margin:0 auto 20px;
+max-width:680px;
+}
+
+.recommended{
+margin-top:14px;
+padding:16px;
+border:1px solid var(--line);
+border-radius:18px;
+background:var(--panel);
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.recommended-title{
+font-size:.85rem;
+color:var(--accent2);
+text-transform:uppercase;
+letter-spacing:.04em;
+margin-bottom:8px;
+font-weight:700;
+}
+
+.recommended-text{
+font-size:1rem;
+color:var(--text);
+line-height:1.55;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:24px;
+padding:20px;
+backdrop-filter:blur(8px);
+box-shadow:0 16px 40px rgba(0,0,0,.18);
+text-align:left;
+}
+
+.section-title{
+color:var(--accent2);
+margin-bottom:10px;
+font-size:1.1rem;
+font-weight:700;
+}
+
 .tool{
 border:1px solid var(--line);
-border-radius:16px;
-padding:14px;
-margin-top:10px;
-background:rgba(13,23,39,.86);
+border-radius:18px;
+padding:16px;
+margin-top:12px;
+background:var(--panel);
 display:flex;
 justify-content:space-between;
 align-items:center;
-gap:12px;
+gap:14px;
 }
-.tool-name{font-weight:700}
-.tool-desc{font-size:.85rem;color:var(--muted)}
+
+.tool-name{
+font-weight:700;
+font-size:1.05rem;
+color:var(--text);
+}
+
+.tool-desc{
+font-size:.92rem;
+color:var(--muted);
+line-height:1.4;
+margin-top:4px;
+}
+
 .open{
-padding:8px 14px;
-border-radius:10px;
+display:inline-block;
+padding:10px 16px;
+border-radius:12px;
 background:linear-gradient(180deg,var(--accent),#67b8f6);
 color:#07111f;
 text-decoration:none;
 font-weight:700;
-font-size:.85rem;
+box-shadow:0 10px 24px rgba(103,184,246,.22);
+white-space:nowrap;
+transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;
 }
-.footer{margin-top:16px;font-size:.85rem;color:var(--muted);text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.35)}
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
+
+.open:hover{
+filter:brightness(1.05);
+transform:scale(1.01);
+}
+
+.donate{
+margin-top:25px;
+}
+
+.donate-btn{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+border:1px solid var(--accent2);
+border-radius:12px;
+background:#0e1a22;
+color:var(--accent2);
+text-decoration:none;
+font-weight:bold;
+}
+
+.donate-btn img{
+width:24px;
+height:24px;
+}
+
+.footer{
+margin-top:25px;
+font-size:14px;
+color:var(--muted);
+}
+
+.footer a{
+color:var(--accent2);
+text-decoration:none;
+}
+
+.footer a:hover{
+text-decoration:underline;
+}
+
+.footer-note{
+margin-top:14px;
+font-size:14px;
+color:var(--muted);
+}
+
+@media(max-width:700px){
+.grid{
+grid-template-columns:1fr;
+}
+
+.tool{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.open{
+width:100%;
+text-align:center;
+}
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
 
-<section class="hero">
-<div class="brand" style="flex-direction:column;align-items:center;text-align:center;">
-<div class="logo-large"><img src="/logo.png" alt="InTandem ToolWorks logo"></div>
-<div>
+<div class="hero">
+
+<img src="logo.png" class="logo" alt="In Tandem Toolworks logo">
+
 <div class="eyebrow">InTandem ToolWorks</div>
+
 <h1>Navgenie</h1>
-<p class="subtitle">A smart guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, or situational awareness.</p>
-<div style="margin-top:14px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:#0d1727;max-width:700px;">
-  <div style="font-size:.82rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">Recommended order</div>
-  <div style="font-size:.92rem;color:var(--text);line-height:1.45;">
-    <strong>Trip planning:</strong> TrueNorth → PogBait → VanLegit → Gaucho6<br>
-    <strong>Solar workflow:</strong> PanelPoint → SolarProduction → OffGridSolar
-  </div>
+
+<p class="subtitle">
+A smart guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, or situational awareness.
+</p>
+
+<div class="recommended">
+<div class="recommended-title">Recommended Order</div>
+<div class="recommended-text">
+<strong>Trip planning:</strong> TrueNorth → PogBait → VanLegit → Gaucho6<br>
+<strong>Solar workflow:</strong> PanelPoint → SolarProduction → OffGridSolar
 </div>
 </div>
+
 </div>
-</section>
 
 <div class="grid">
 
@@ -119,18 +281,18 @@ font-size:.85rem;
 
 <div class="tool">
 <div>
-<div class="tool-name">OffGridSolar</div>
-<div class="tool-desc">Estimate solar setup needs for off-grid systems.</div>
-</div>
-<a class="open" href="https://offgridsolar.ittworks.com">Open</a>
-</div>
-
-<div class="tool">
-<div>
 <div class="tool-name">SolarProduction</div>
 <div class="tool-desc">Estimate solar energy production potential.</div>
 </div>
 <a class="open" href="https://solarproduction.ittworks.com">Open</a>
+</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">OffGridSolar</div>
+<div class="tool-desc">Estimate solar setup needs for off-grid systems.</div>
+</div>
+<a class="open" href="https://offgridsolar.ittworks.com">Open</a>
 </div>
 
 </div>
@@ -164,7 +326,7 @@ font-size:.85rem;
 
 </div>
 
-<div class="card">
+<div class="card" style="grid-column:1 / -1;">
 <div class="section-title">Situational Awareness</div>
 
 <div class="tool">
@@ -179,10 +341,42 @@ font-size:.85rem;
 
 </div>
 
+<div class="donate">
+
+<p>Enjoying the tools? Support development.</p>
+
+<a class="donate-btn" href="https://donate.stripe.com/4gM3cv0kV4UJbzPfeDeAg00" target="_blank">
+<img src="ittw-donate.png" alt="Donation icon">
+Support InTandem Toolworks
+</a>
+
+<p style="font-size:13px;opacity:.7;">Thank you for the donation.</p>
+
+</div>
+
 <div class="footer">
-InTandem ToolWorks • Simple tools that solve real problems.
+
+Built by <b>In Tandem Toolworks</b>
+
+<br><br>
+
+<a href="mailto:support@ittworks.com">
+support@ittworks.com
+</a>
+
+<br><br>
+
+<a href="https://www.facebook.com/InTandemToolworks" target="_blank">
+Follow us on Facebook
+</a>
+
+<div class="footer-note">
+Simple tools that solve real problems.
 </div>
 
 </div>
+
+</div>
+
 </body>
 </html>
