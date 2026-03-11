@@ -1,342 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Navgenie | InTandem Toolbelt Guide</title>
-  <meta name="description" content="A smart guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, or situational awareness.">
-  <meta name="theme-color" content="#0f1416">
+<title>Navgenie | InTandem Toolbelt</title>
 
-  <link rel="icon" href="logo.png">
-  <script defer src="/_vercel/insights/script.js"></script>
+<style>
 
-  <style>
-    :root{
-      --bg1:#0b1220;
-      --bg2:#13233f;
-      --card:rgba(20,32,51,.82);
-      --line:#2a3d63;
-      --text:#e8eefc;
-      --muted:#a9b7d3;
-      --accent:#8dd3ff;
-      --accent2:#ffd98a;
-      --purple:#c7b0ff;
-      --panel:#0d1727;
-    }
+:root{
+--bg1:#0b1220;
+--bg2:#13233f;
+--card:#142033cc;
+--line:#2a3d63;
+--text:#e8eefc;
+--muted:#a9b7d3;
+--accent:#8dd3ff;
+--accent2:#ffd98a;
+}
 
-    *{box-sizing:border-box}
+*{box-sizing:border-box}
 
-    body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:
-        linear-gradient(rgba(11,18,32,.45),rgba(11,18,32,.55)),
-        url("/topo-bg.jpg");
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-      color:var(--text);
-      margin:0;
-      padding:20px;
-      min-height:100vh;
-    }
+body{
+font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:
+linear-gradient(rgba(11,18,32,.5),rgba(11,18,32,.6)),
+url("/topo-bg.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:var(--text);
+margin:0;
+padding:20px;
+min-height:100vh;
+}
 
-    .container{
-      max-width:900px;
-      margin:0 auto;
-    }
+.container{
+max-width:900px;
+margin:0 auto;
+}
 
-    .hero{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:26px;
-      margin-bottom:18px;
-      background:linear-gradient(180deg, rgba(20,32,51,.86), rgba(20,32,51,.74));
-      backdrop-filter:blur(10px);
-      box-shadow:0 20px 60px rgba(0,0,0,.32);
-      text-align:center;
-    }
+.hero{
+border:1px solid var(--line);
+border-radius:28px;
+padding:26px;
+margin-bottom:20px;
+background:rgba(20,32,51,.85);
+backdrop-filter:blur(10px);
+text-align:center;
+}
 
-    .logo-large{
-      display:flex;
-      justify-content:center;
-      margin-bottom:14px;
-    }
+.logo{
+margin-bottom:14px;
+}
 
-    .logo-large img{
-      width:120px;
-      height:auto;
-      filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
-    }
+.logo img{
+width:110px;
+}
 
-    .eyebrow{
-      font-size:.85rem;
-      color:var(--accent2);
-      text-transform:uppercase;
-      letter-spacing:.05em;
-      font-weight:700;
-      margin-bottom:6px;
-    }
+h1{
+margin:8px 0 6px;
+font-size:2rem;
+color:var(--accent2);
+}
 
-    h1{
-      margin:4px 0 6px;
-      font-size:2rem;
-      color:var(--accent2);
-    }
+.subtitle{
+color:var(--muted);
+max-width:640px;
+margin:auto;
+line-height:1.5;
+}
 
-    .subtitle{
-      color:var(--muted);
-      max-width:680px;
-      margin:0 auto;
-      line-height:1.5;
-    }
+.workflow{
+margin-top:14px;
+border:1px solid var(--line);
+border-radius:16px;
+padding:12px;
+background:#0d1727;
+font-size:.9rem;
+}
 
-    .workflow{
-      margin-top:14px;
-      padding:12px 14px;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:var(--panel);
-      max-width:700px;
-      margin-left:auto;
-      margin-right:auto;
-      text-align:left;
-    }
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
 
-    .workflow-title{
-      font-size:.82rem;
-      color:var(--accent2);
-      text-transform:uppercase;
-      letter-spacing:.04em;
-      margin-bottom:6px;
-      font-weight:700;
-    }
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:22px;
+padding:18px;
+}
 
-    .workflow-text{
-      font-size:.92rem;
-      color:var(--text);
-      line-height:1.45;
-    }
+.section-title{
+color:var(--accent2);
+margin-bottom:8px;
+font-weight:700;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
+.tool{
+border:1px solid var(--line);
+border-radius:16px;
+padding:14px;
+margin-top:10px;
+background:#0d1727;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+}
 
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:18px;
-      backdrop-filter:blur(8px);
-      box-shadow:0 16px 40px rgba(0,0,0,.18);
-    }
+.tool-name{
+font-weight:700;
+}
 
-    .section-title{
-      color:var(--accent2);
-      margin-bottom:8px;
-      font-weight:700;
-    }
+.tool-desc{
+font-size:.85rem;
+color:var(--muted);
+margin-top:3px;
+}
 
-    .tool{
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-      margin-top:10px;
-      background:rgba(13,23,39,.86);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-    }
+.open{
+padding:8px 14px;
+border-radius:10px;
+background:linear-gradient(180deg,var(--accent),#67b8f6);
+color:#07111f;
+text-decoration:none;
+font-weight:700;
+font-size:.85rem;
+}
 
-    .tool-name{
-      font-weight:700;
-      color:var(--text);
-    }
+.open:hover{
+filter:brightness(1.05);
+}
 
-    .tool-desc{
-      font-size:.85rem;
-      color:var(--muted);
-      line-height:1.35;
-      margin-top:3px;
-    }
+.footer{
+margin-top:20px;
+font-size:.9rem;
+color:var(--muted);
+text-align:center;
+line-height:1.6;
+}
 
-    .open{
-      padding:8px 14px;
-      border-radius:10px;
-      background:linear-gradient(180deg,var(--accent),#67b8f6);
-      color:#07111f;
-      text-decoration:none;
-      font-weight:700;
-      font-size:.85rem;
-      white-space:nowrap;
-      box-shadow:0 10px 24px rgba(103,184,246,.22);
-    }
+.footer a{
+color:var(--accent2);
+text-decoration:none;
+}
 
-    .open:hover{
-      filter:brightness(1.05);
-    }
+.footer a:hover{
+text-decoration:underline;
+}
 
-    .donate{
-      margin-top:25px;
-      text-align:center;
-    }
+@media(max-width:700px){
+.grid{grid-template-columns:1fr}
+}
 
-    .donate-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 16px;
-      border:1px solid var(--accent2);
-      border-radius:12px;
-      background:#0e1a22;
-      color:var(--accent2);
-      text-decoration:none;
-      font-weight:bold;
-    }
-
-    .donate-btn img{
-      width:24px;
-      height:24px;
-    }
-
-    .footer{
-      margin-top:20px;
-      font-size:.9rem;
-      color:var(--muted);
-      text-align:center;
-      line-height:1.6;
-    }
-
-    .footer a{
-      color:var(--accent2);
-      text-decoration:none;
-    }
-
-    .footer a:hover{
-      text-decoration:underline;
-    }
-
-    @media(max-width:700px){
-      .grid{grid-template-columns:1fr}
-      h1{font-size:1.75rem}
-      .tool{flex-direction:column;align-items:flex-start}
-      .open{width:100%;text-align:center}
-    }
-  </style>
+</style>
 </head>
+
 <body>
+
 <div class="container">
 
-  <section class="hero">
-    <div class="logo-large">
-      <img src="logo.png" alt="InTandem ToolWorks logo">
-    </div>
+<section class="hero">
 
-    <div class="eyebrow">InTandem ToolWorks</div>
-    <h1>Navgenie</h1>
-    <p class="subtitle">A smart guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, or situational awareness.</p>
+<div class="logo">
+<img src="logo.png" alt="InTandem ToolWorks">
+</div>
 
-    <div class="workflow">
-      <div class="workflow-title">Recommended order</div>
-      <div class="workflow-text">
-        <strong>Trip planning:</strong> TrueNorth → PogBait → VanLegit → Gaucho 6<br>
-        <strong>Solar workflow:</strong> Panel Pointer → Production → OffGrid
-      </div>
-    </div>
-  </section>
+<h1>Navgenie</h1>
 
-  <div class="grid">
+<p class="subtitle">
+A simple guide into the InTandem Toolbelt.  
+Choose the right tool for solar planning, travel planning, or situational awareness.
+</p>
 
-    <div class="card">
-      <div class="section-title">Solar Tools</div>
+<div class="workflow">
+<b>Recommended order</b><br><br>
+Solar workflow → Panel Pointer → Production → OffGrid<br>
+Travel workflow → TrueNorth → PogBait → VanLegit → Gaucho 6
+</div>
 
-      <div class="tool">
-        <div>
-          <div class="tool-name">Panel Pointer</div>
-          <div class="tool-desc">Find the correct direction and tilt for solar panels.</div>
-        </div>
-        <a class="open" href="https://panelpointer.ittworks.com">Open</a>
-      </div>
+</section>
 
-      <div class="tool">
-        <div>
-          <div class="tool-name">Production</div>
-          <div class="tool-desc">Estimate solar energy production potential.</div>
-        </div>
-        <a class="open" href="https://production.ittworks.com">Open</a>
-      </div>
 
-      <div class="tool">
-        <div>
-          <div class="tool-name">OffGrid</div>
-          <div class="tool-desc">Estimate solar setup needs for off-grid systems.</div>
-        </div>
-        <a class="open" href="https://offgrid.ittworks.com">Open</a>
-      </div>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <div class="section-title">Travel Planning</div>
+<div class="card">
 
-      <div class="tool">
-        <div>
-          <div class="tool-name">TrueNorth</div>
-          <div class="tool-desc">Estimate cellular reception before you travel.</div>
-        </div>
-        <a class="open" href="https://truenorth.ittworks.com">Open</a>
-      </div>
+<div class="section-title">Solar Tools</div>
 
-      <div class="tool">
-        <div>
-          <div class="tool-name">PogBait</div>
-          <div class="tool-desc">Locate nearby amenities like fuel, groceries, coffee, and supplies.</div>
-        </div>
-        <a class="open" href="https://pogbait.ittworks.com">Open</a>
-      </div>
+<div class="tool">
+<div>
+<div class="tool-name">Panel Pointer</div>
+<div class="tool-desc">Find correct solar panel direction and tilt.</div>
+</div>
+<a class="open" href="https://panelpoint.ittworks.com">Open</a>
+</div>
 
-      <div class="tool">
-        <div>
-          <div class="tool-name">VanLegit</div>
-          <div class="tool-desc">Check overnight vehicle legality for trip planning.</div>
-        </div>
-        <a class="open" href="https://vanlegit.ittworks.com">Open</a>
-      </div>
-    </div>
+<div class="tool">
+<div>
+<div class="tool-name">Production</div>
+<div class="tool-desc">Estimate solar energy production potential.</div>
+</div>
+<a class="open" href="https://production.ittworks.com">Open</a>
+</div>
 
-    <div class="card">
-      <div class="section-title">Situational Awareness</div>
-
-      <div class="tool">
-        <div>
-          <div class="tool-name">Gaucho 6</div>
-          <div class="tool-desc">Back-pocket camera awareness tool concept.</div>
-        </div>
-        <a class="open" href="https://gaucho6.ittworks.com">Open</a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="donate">
-    <p>Enjoying the tools? Support development.</p>
-    <a class="donate-btn" href="https://donate.stripe.com/4gM3cv0kV4UJbzPfeDeAg00" target="_blank">
-      <img src="ittw-donate.png" alt="Donation icon">
-      Support InTandem Toolworks
-    </a>
-    <p style="font-size:13px;opacity:.7;">Thank you for the donation.</p>
-  </div>
-
-  <div class="footer">
-    Built by <b>In Tandem ToolWorks</b><br><br>
-    <a href="mailto:support@ittworks.com">support@ittworks.com</a><br><br>
-    <a href="https://www.facebook.com/InTandemToolworks" target="_blank">Follow us on Facebook</a>
-  </div>
+<div class="tool">
+<div>
+<div class="tool-name">OffGrid</div>
+<div class="tool-desc">Estimate off-grid solar system sizing.</div>
+</div>
+<a class="open" href="https://offgrid.ittworks.com">Open</a>
+</div>
 
 </div>
+
+
+<div class="card">
+
+<div class="section-title">Travel Planning</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">TrueNorth</div>
+<div class="tool-desc">Estimate cellular coverage before traveling.</div>
+</div>
+<a class="open" href="https://truenorth.ittworks.com">Open</a>
+</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">PogBait</div>
+<div class="tool-desc">Find nearby amenities along your route.</div>
+</div>
+<a class="open" href="https://pogbait.ittworks.com">Open</a>
+</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">VanLegit</div>
+<div class="tool-desc">Plan respectful overnight vehicle parking.</div>
+</div>
+<a class="open" href="https://vanlegit.ittworks.com">Open</a>
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="section-title">Situational Awareness</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">Gaucho 6</div>
+<div class="tool-desc">Rear-camera situational awareness concept.</div>
+</div>
+<a class="open" href="https://gaucho6.ittworks.com">Open</a>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+
+Built by <b>InTandem ToolWorks</b><br><br>
+
+<a href="mailto:support@ittworks.com">support@ittworks.com</a><br><br>
+
+<a href="https://www.facebook.com/InTandemToolworks" target="_blank">
+Follow us on Facebook
+</a>
+
+</div>
+
+</div>
+
 </body>
 </html>
