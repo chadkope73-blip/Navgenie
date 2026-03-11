@@ -39,8 +39,8 @@ linear-gradient(180deg, rgba(255,217,138,.08), rgba(255,255,255,.02));
 box-shadow:0 20px 60px rgba(0,0,0,.28);
 }
 .brand{display:flex;align-items:center;gap:14px}
-.logo{width:56px;height:56px}
-.logo img{width:100%;height:100%;object-fit:contain}
+.logo-large{display:flex;justify-content:center;margin-bottom:14px}
+.logo-large img{width:120px;height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
 .eyebrow{font-size:.85rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.05em}
 h1{margin:4px 0 6px;font-size:2rem}
 .subtitle{color:var(--muted);max-width:620px}
@@ -82,8 +82,8 @@ font-size:.85rem;
 <div class="container">
 
 <section class="hero">
-<div class="brand">
-<div class="logo"><img src="/logo.png" alt="InTandem ToolWorks logo"></div>
+<div class="brand" style="flex-direction:column;align-items:center;text-align:center;">
+<div class="logo-large"><img src="/logo.png" alt="InTandem ToolWorks logo"></div>
 <div>
 <div class="eyebrow">InTandem ToolWorks</div>
 <h1>Navgenie</h1>
