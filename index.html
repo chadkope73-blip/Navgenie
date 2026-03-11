@@ -5,18 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Navgenie | InTandem Toolbelt</title>
+<meta name="description" content="A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, or situational awareness.">
+<meta name="theme-color" content="#0f1416">
+
+<link rel="icon" href="logo.png">
+<script defer src="/_vercel/insights/script.js"></script>
 
 <style>
-
 :root{
 --bg1:#0b1220;
 --bg2:#13233f;
---card:#142033cc;
+--card:rgba(20,32,51,.82);
 --line:#2a3d63;
 --text:#e8eefc;
 --muted:#a9b7d3;
 --accent:#8dd3ff;
 --accent2:#ffd98a;
+--panel:#0d1727;
 }
 
 *{box-sizing:border-box}
@@ -24,7 +29,7 @@
 body{
 font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 background:
-linear-gradient(rgba(11,18,32,.5),rgba(11,18,32,.6)),
+linear-gradient(rgba(11,18,32,.45),rgba(11,18,32,.55)),
 url("/topo-bg.jpg");
 background-size:cover;
 background-position:center;
@@ -47,6 +52,7 @@ padding:26px;
 margin-bottom:20px;
 background:rgba(20,32,51,.85);
 backdrop-filter:blur(10px);
+box-shadow:0 16px 40px rgba(0,0,0,.25);
 text-align:center;
 }
 
@@ -55,7 +61,9 @@ margin-bottom:14px;
 }
 
 .logo img{
-width:110px;
+width:120px;
+height:auto;
+filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
 }
 
 h1{
@@ -66,7 +74,7 @@ color:var(--accent2);
 
 .subtitle{
 color:var(--muted);
-max-width:640px;
+max-width:680px;
 margin:auto;
 line-height:1.5;
 }
@@ -75,9 +83,23 @@ line-height:1.5;
 margin-top:14px;
 border:1px solid var(--line);
 border-radius:16px;
-padding:12px;
-background:#0d1727;
+padding:12px 14px;
+background:var(--panel);
 font-size:.9rem;
+line-height:1.5;
+max-width:720px;
+margin-left:auto;
+margin-right:auto;
+text-align:left;
+}
+
+.workflow-title{
+font-size:.82rem;
+color:var(--accent2);
+text-transform:uppercase;
+letter-spacing:.04em;
+font-weight:700;
+margin-bottom:6px;
 }
 
 .grid{
@@ -91,6 +113,8 @@ background:var(--card);
 border:1px solid var(--line);
 border-radius:22px;
 padding:18px;
+backdrop-filter:blur(8px);
+box-shadow:0 16px 40px rgba(0,0,0,.18);
 }
 
 .section-title{
@@ -104,7 +128,7 @@ border:1px solid var(--line);
 border-radius:16px;
 padding:14px;
 margin-top:10px;
-background:#0d1727;
+background:var(--panel);
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -119,6 +143,7 @@ font-weight:700;
 font-size:.85rem;
 color:var(--muted);
 margin-top:3px;
+line-height:1.35;
 }
 
 .open{
@@ -129,10 +154,35 @@ color:#07111f;
 text-decoration:none;
 font-weight:700;
 font-size:.85rem;
+white-space:nowrap;
+box-shadow:0 10px 24px rgba(103,184,246,.22);
 }
 
 .open:hover{
 filter:brightness(1.05);
+}
+
+.donate{
+margin-top:25px;
+text-align:center;
+}
+
+.donate-btn{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+border:1px solid var(--accent2);
+border-radius:12px;
+background:#0e1a22;
+color:var(--accent2);
+text-decoration:none;
+font-weight:bold;
+}
+
+.donate-btn img{
+width:24px;
+height:24px;
 }
 
 .footer{
@@ -154,8 +204,15 @@ text-decoration:underline;
 
 @media(max-width:700px){
 .grid{grid-template-columns:1fr}
+.tool{
+flex-direction:column;
+align-items:flex-start;
 }
-
+.open{
+width:100%;
+text-align:center;
+}
+}
 </style>
 </head>
 
@@ -172,23 +229,21 @@ text-decoration:underline;
 <h1>Navgenie</h1>
 
 <p class="subtitle">
-A simple guide into the InTandem Toolbelt.  
+A simple guide into the InTandem Toolbelt.
 Choose the right tool for solar planning, travel planning, or situational awareness.
 </p>
 
 <div class="workflow">
-<b>Recommended order</b><br><br>
-Solar workflow → Panel Pointer → Production → OffGrid<br>
-Travel workflow → TrueNorth → PogBait → VanLegit → Gaucho 6
+<div class="workflow-title">Recommended order</div>
+<b>Solar workflow:</b> Panel Pointer → Production → OffGrid<br>
+<b>Travel workflow:</b> TrueNorth → PogBait → VanLegit → Gaucho 6 → HasMatt
 </div>
 
 </section>
 
-
 <div class="grid">
 
 <div class="card">
-
 <div class="section-title">Solar Tools</div>
 
 <div class="tool">
@@ -214,12 +269,9 @@ Travel workflow → TrueNorth → PogBait → VanLegit → Gaucho 6
 </div>
 <a class="open" href="https://offgrid.ittworks.com">Open</a>
 </div>
-
 </div>
 
-
 <div class="card">
-
 <div class="section-title">Travel Planning</div>
 
 <div class="tool">
@@ -245,12 +297,9 @@ Travel workflow → TrueNorth → PogBait → VanLegit → Gaucho 6
 </div>
 <a class="open" href="https://vanlegit.ittworks.com">Open</a>
 </div>
-
 </div>
 
-
 <div class="card">
-
 <div class="section-title">Situational Awareness</div>
 
 <div class="tool">
@@ -261,21 +310,30 @@ Travel workflow → TrueNorth → PogBait → VanLegit → Gaucho 6
 <a class="open" href="https://gaucho6.ittworks.com">Open</a>
 </div>
 
+<div class="tool">
+<div>
+<div class="tool-name">HasMatt</div>
+<div class="tool-desc">Scan nearby hazards including weather alerts, earthquakes, wildfire activity, and environmental risks.</div>
+</div>
+<a class="open" href="https://hasmatt.ittworks.com">Open</a>
+</div>
 </div>
 
 </div>
 
+<div class="donate">
+<p>Enjoying the tools? Support development.</p>
+<a class="donate-btn" href="https://donate.stripe.com/4gM3cv0kV4UJbzPfeDeAg00" target="_blank">
+<img src="ittw-donate.png" alt="Donation icon">
+Support InTandem Toolworks
+</a>
+<p style="font-size:13px;opacity:.7;">Thank you for the donation.</p>
+</div>
 
 <div class="footer">
-
 Built by <b>InTandem ToolWorks</b><br><br>
-
 <a href="mailto:support@ittworks.com">support@ittworks.com</a><br><br>
-
-<a href="https://www.facebook.com/InTandemToolworks" target="_blank">
-Follow us on Facebook
-</a>
-
+<a href="https://www.facebook.com/InTandemToolworks" target="_blank">Follow us on Facebook</a>
 </div>
 
 </div>
