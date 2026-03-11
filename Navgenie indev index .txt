@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Navgenie | InTandem Toolbelt Guide</title>
+<style>
+:root{
+--bg1:#0b1220;
+--bg2:#13233f;
+--card:#142033cc;
+--line:#2a3d63;
+--text:#e8eefc;
+--muted:#a9b7d3;
+--accent:#8dd3ff;
+--accent2:#ffd98a;
+--purple:#c7b0ff;
+}
+*{box-sizing:border-box}
+body{
+font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:linear-gradient(180deg,var(--bg2),var(--bg1));
+color:var(--text);
+margin:0;
+padding:20px;
+min-height:100vh;
+}
+.container{max-width:900px;margin:0 auto}
+.hero{
+position:relative;
+overflow:hidden;
+border:1px solid var(--line);
+border-radius:28px;
+padding:26px;
+margin-bottom:18px;
+background:
+radial-gradient(circle at top right, rgba(141,211,255,.18), transparent 28%),
+linear-gradient(180deg, rgba(255,217,138,.08), rgba(255,255,255,.02));
+box-shadow:0 20px 60px rgba(0,0,0,.28);
+}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px}
+.logo img{width:100%;height:100%;object-fit:contain}
+.eyebrow{font-size:.85rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.05em}
+h1{margin:4px 0 6px;font-size:2rem}
+.subtitle{color:var(--muted);max-width:620px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{
+background:var(--card);
+border:1px solid var(--line);
+border-radius:22px;
+padding:18px;
+backdrop-filter:blur(6px);
+}
+.section-title{color:var(--accent2);margin-bottom:8px}
+.tool{
+border:1px solid var(--line);
+border-radius:16px;
+padding:14px;
+margin-top:10px;
+background:#0d1727;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.tool-name{font-weight:700}
+.tool-desc{font-size:.85rem;color:var(--muted)}
+.open{
+padding:8px 14px;
+border-radius:10px;
+background:linear-gradient(180deg,var(--accent),#67b8f6);
+color:#07111f;
+text-decoration:none;
+font-weight:700;
+font-size:.85rem;
+}
+.footer{margin-top:16px;font-size:.85rem;color:var(--muted);text-align:center}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<section class="hero">
+<div class="brand">
+<div class="logo"><img src="/logo.png" alt="InTandem ToolWorks logo"></div>
+<div>
+<div class="eyebrow">InTandem ToolWorks</div>
+<h1>Navgenie</h1>
+<p class="subtitle">A smart guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, or situational awareness.</p>
+<div style="margin-top:14px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:#0d1727;max-width:700px;">
+  <div style="font-size:.82rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;">Recommended order</div>
+  <div style="font-size:.92rem;color:var(--text);line-height:1.45;">
+    <strong>Trip planning:</strong> TrueNorth → PogBait → VanLegit → Gaucho6<br>
+    <strong>Solar workflow:</strong> PanelPoint → SolarProduction → OffGridSolar
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="grid">
+
+<div class="card">
+<div class="section-title">Solar Tools</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">PanelPoint</div>
+<div class="tool-desc">Find the correct direction and tilt for solar panels.</div>
+</div>
+<a class="open" href="https://panelpoint.ittworks.com">Open</a>
+</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">OffGridSolar</div>
+<div class="tool-desc">Estimate solar setup needs for off-grid systems.</div>
+</div>
+<a class="open" href="https://offgridsolar.ittworks.com">Open</a>
+</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">SolarProduction</div>
+<div class="tool-desc">Estimate solar energy production potential.</div>
+</div>
+<a class="open" href="https://solarproduction.ittworks.com">Open</a>
+</div>
+
+</div>
+
+<div class="card">
+<div class="section-title">Travel Planning</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">TrueNorth</div>
+<div class="tool-desc">Estimate cellular reception before you travel.</div>
+</div>
+<a class="open" href="https://truenorth.ittworks.com">Open</a>
+</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">PogBait</div>
+<div class="tool-desc">Locate nearby amenities like fuel, groceries, and supplies.</div>
+</div>
+<a class="open" href="https://pogbait.ittworks.com">Open</a>
+</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">VanLegit</div>
+<div class="tool-desc">Check overnight vehicle legality for trip planning.</div>
+</div>
+<a class="open" href="https://vanlegit.ittworks.com">Open</a>
+</div>
+
+</div>
+
+<div class="card">
+<div class="section-title">Situational Awareness</div>
+
+<div class="tool">
+<div>
+<div class="tool-name">Gaucho6</div>
+<div class="tool-desc">Back-pocket camera awareness tool concept.</div>
+</div>
+<a class="open" href="https://gaucho6.ittworks.com">Open</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+InTandem ToolWorks • Simple tools that solve real problems.
+</div>
+
+</div>
+</body>
+</html>
