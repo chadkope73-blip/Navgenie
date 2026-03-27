@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Navgenie | InTandem Toolbelt</title>
-<meta name="description" content="A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, or situational awareness.">
+<meta name="description" content="A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, situational awareness, and learning tools for the field.">
 <meta name="theme-color" content="#0f1416">
 
 <link rel="icon" href="logo.png">
@@ -15,44 +15,52 @@
 :root{
 --bg1:#0b1220;
 --bg2:#13233f;
---card:rgba(20,32,51,.82);
+--card:rgba(20,32,51,.84);
 --line:#2a3d63;
 --text:#e8eefc;
 --muted:#a9b7d3;
 --accent:#8dd3ff;
 --accent2:#ffd98a;
 --panel:#0d1727;
+--shadow:0 16px 40px rgba(0,0,0,.22);
+--radius-xl:28px;
+--radius-lg:22px;
+--radius-md:16px;
 }
 
 *{box-sizing:border-box}
 
+html,body{
+margin:0;
+padding:0;
+min-height:100%;
+}
+
 body{
 font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 background:
-linear-gradient(rgba(11,18,32,.45),rgba(11,18,32,.55)),
+linear-gradient(rgba(11,18,32,.46),rgba(11,18,32,.58)),
 url("/topo-bg.jpg");
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
 color:var(--text);
-margin:0;
 padding:20px;
-min-height:100vh;
 }
 
 .container{
-max-width:900px;
+max-width:980px;
 margin:0 auto;
 }
 
 .hero{
 border:1px solid var(--line);
-border-radius:28px;
-padding:26px;
+border-radius:var(--radius-xl);
+padding:28px;
 margin-bottom:20px;
-background:rgba(20,32,51,.85);
+background:rgba(20,32,51,.86);
 backdrop-filter:blur(10px);
-box-shadow:0 16px 40px rgba(0,0,0,.25);
+box-shadow:var(--shadow);
 text-align:center;
 }
 
@@ -68,15 +76,17 @@ filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));
 
 h1{
 margin:8px 0 6px;
-font-size:2rem;
+font-size:2.1rem;
 color:var(--accent2);
+letter-spacing:.01em;
 }
 
 .subtitle{
 color:var(--muted);
-max-width:680px;
+max-width:720px;
 margin:auto;
-line-height:1.5;
+line-height:1.55;
+font-size:1rem;
 }
 
 .grid{
@@ -88,21 +98,29 @@ gap:16px;
 .card{
 background:var(--card);
 border:1px solid var(--line);
-border-radius:22px;
+border-radius:var(--radius-lg);
 padding:18px;
 backdrop-filter:blur(8px);
-box-shadow:0 16px 40px rgba(0,0,0,.18);
+box-shadow:var(--shadow);
 }
 
 .section-title{
 color:var(--accent2);
-margin-bottom:8px;
+margin-bottom:10px;
 font-weight:700;
+font-size:1.02rem;
+}
+
+.section-note{
+font-size:.86rem;
+color:var(--muted);
+margin-bottom:8px;
+line-height:1.4;
 }
 
 .tool{
 border:1px solid var(--line);
-border-radius:16px;
+border-radius:var(--radius-md);
 padding:14px;
 margin-top:10px;
 background:var(--panel);
@@ -110,6 +128,17 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 gap:12px;
+transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+}
+
+.tool:hover{
+transform:translateY(-1px);
+border-color:#3f5b8d;
+box-shadow:0 10px 28px rgba(0,0,0,.18);
+}
+
+.tool-copy{
+min-width:0;
 }
 
 .tool-name{
@@ -117,22 +146,26 @@ font-weight:700;
 }
 
 .tool-desc{
-font-size:.85rem;
+font-size:.86rem;
 color:var(--muted);
-margin-top:3px;
-line-height:1.35;
+margin-top:4px;
+line-height:1.4;
 }
 
 .open{
-padding:8px 14px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:9px 14px;
 border-radius:10px;
 background:linear-gradient(180deg,var(--accent),#67b8f6);
 color:#07111f;
 text-decoration:none;
 font-weight:700;
-font-size:.85rem;
+font-size:.86rem;
 white-space:nowrap;
 box-shadow:0 10px 24px rgba(103,184,246,.22);
+min-width:86px;
 }
 
 .open:hover{
@@ -140,8 +173,19 @@ filter:brightness(1.05);
 }
 
 .donate{
-margin-top:25px;
+margin-top:24px;
 text-align:center;
+border:1px solid var(--line);
+border-radius:var(--radius-xl);
+padding:22px 18px;
+background:rgba(20,32,51,.82);
+backdrop-filter:blur(8px);
+box-shadow:var(--shadow);
+}
+
+.donate p{
+margin:0 0 12px;
+color:var(--muted);
 }
 
 .donate-btn{
@@ -162,12 +206,19 @@ width:24px;
 height:24px;
 }
 
+.donate small{
+display:block;
+margin-top:10px;
+opacity:.72;
+color:var(--muted);
+}
+
 .footer{
 margin-top:20px;
 font-size:.9rem;
 color:var(--muted);
 text-align:center;
-line-height:1.6;
+line-height:1.7;
 }
 
 .footer a{
@@ -179,15 +230,16 @@ text-decoration:none;
 text-decoration:underline;
 }
 
-@media(max-width:700px){
-.grid{grid-template-columns:1fr}
+@media(max-width:760px){
+.grid{
+grid-template-columns:1fr;
+}
 .tool{
 flex-direction:column;
 align-items:flex-start;
 }
 .open{
 width:100%;
-text-align:center;
 }
 }
 </style>
@@ -198,7 +250,6 @@ text-align:center;
 <div class="container">
 
 <section class="hero">
-
 <div class="logo">
 <img src="logo.png" alt="InTandem ToolWorks">
 </div>
@@ -206,19 +257,31 @@ text-align:center;
 <h1>Navgenie</h1>
 
 <p class="subtitle">
-A simple guide into the InTandem Toolbelt.
-Choose the right tool for solar planning, travel planning, celestial reference, or situational awareness.
+A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, situational awareness, and learning tools for the field.
 </p>
-
 </section>
 
 <div class="grid">
 
 <div class="card">
-<div class="section-title">Solar Tools</div>
+<div class="section-title">Learning Tools</div>
+<div class="section-note">Simple tools that help people build skill, confidence, and momentum.</div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
+<div class="tool-name">InTandem Typing</div>
+<div class="tool-desc">Practice speed and accuracy with safe, optimistic, AI-ready typing passages.</div>
+</div>
+<a class="open" href="https://intandem-typing.ittworks.com">Open</a>
+</div>
+</div>
+
+<div class="card">
+<div class="section-title">Solar Tools</div>
+<div class="section-note">Planning tools for panel direction, production estimates, and off-grid sizing.</div>
+
+<div class="tool">
+<div class="tool-copy">
 <div class="tool-name">Panel Pointer</div>
 <div class="tool-desc">Find correct solar panel direction and tilt.</div>
 </div>
@@ -226,7 +289,7 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 </div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">Production</div>
 <div class="tool-desc">Estimate solar energy production potential.</div>
 </div>
@@ -234,7 +297,7 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 </div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">OffGrid</div>
 <div class="tool-desc">Estimate off-grid solar system sizing.</div>
 </div>
@@ -244,9 +307,10 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 
 <div class="card">
 <div class="section-title">Travel Planning</div>
+<div class="section-note">Tools for route awareness, amenities, and respectful overnight planning.</div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">TrueNorth</div>
 <div class="tool-desc">Estimate cellular coverage before traveling.</div>
 </div>
@@ -254,7 +318,7 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 </div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">PogBait</div>
 <div class="tool-desc">Find nearby amenities along your route.</div>
 </div>
@@ -262,7 +326,7 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 </div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">VanLegit</div>
 <div class="tool-desc">Plan respectful overnight vehicle parking.</div>
 </div>
@@ -272,9 +336,10 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 
 <div class="card">
 <div class="section-title">Situational Awareness</div>
+<div class="section-note">Reference tools for environmental awareness, celestial orientation, and field concepts.</div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">Gaucho 6</div>
 <div class="tool-desc">Rear-camera situational awareness concept.</div>
 </div>
@@ -282,7 +347,7 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 </div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">HasMatt</div>
 <div class="tool-desc">Scan nearby hazards including weather alerts, earthquakes, wildfire activity, and environmental risks.</div>
 </div>
@@ -290,7 +355,7 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 </div>
 
 <div class="tool">
-<div>
+<div class="tool-copy">
 <div class="tool-name">Skywalker247</div>
 <div class="tool-desc">Identify constellations, estimate celestial direction, and compare the sky against GNSS.</div>
 </div>
@@ -304,9 +369,9 @@ Choose the right tool for solar planning, travel planning, celestial reference, 
 <p>Enjoying the tools? Support development.</p>
 <a class="donate-btn" href="https://donate.stripe.com/4gM3cv0kV4UJbzPfeDeAg00" target="_blank">
 <img src="ittw-donate.png" alt="Donation icon">
-Support InTandem Toolworks
+Support InTandem ToolWorks
 </a>
-<p style="font-size:13px;opacity:.7;">Thank you for the donation.</p>
+<small>Thank you for the donation.</small>
 </div>
 
 <div class="footer">
