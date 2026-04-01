@@ -172,6 +172,59 @@ min-width:86px;
 filter:brightness(1.05);
 }
 
+.meri-wrap{
+display:flex;
+gap:10px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+.meri-wrap input{
+flex:1 1 420px;
+padding:12px 14px;
+border-radius:12px;
+border:1px solid var(--line);
+background:#09111d;
+color:var(--text);
+font-size:.95rem;
+outline:none;
+}
+
+.meri-wrap input:focus{
+border-color:#3f5b8d;
+box-shadow:0 0 0 3px rgba(141,211,255,.12);
+}
+
+.meri-wrap button{
+padding:12px 16px;
+border:none;
+border-radius:12px;
+background:linear-gradient(180deg,var(--accent2),#f4c96f);
+color:#07111f;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 10px 24px rgba(255,217,138,.18);
+}
+
+.meri-wrap button:hover{
+filter:brightness(1.04);
+}
+
+.meri-output{
+margin-top:14px;
+padding:14px;
+border:1px solid var(--line);
+border-radius:14px;
+background:var(--panel);
+color:var(--text);
+line-height:1.5;
+min-height:58px;
+}
+
+.meri-link-wrap{
+margin-top:12px;
+}
+
 .donate{
 margin-top:24px;
 text-align:center;
@@ -241,6 +294,13 @@ align-items:flex-start;
 .open{
 width:100%;
 }
+.meri-wrap{
+flex-direction:column;
+}
+.meri-wrap input,
+.meri-wrap button{
+width:100%;
+}
 }
 </style>
 </head>
@@ -259,6 +319,24 @@ width:100%;
 <p class="subtitle">
 A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, situational awareness, and learning tools for the field.
 </p>
+</section>
+
+<section class="card" id="meri-card">
+<div class="section-title">Ask Meri</div>
+<div class="section-note">Describe what you need, and Meri will point you to the right tool.</div>
+
+<div class="meri-wrap">
+<input id="meri-input" type="text" placeholder="Example: Meri, point my panels for peak light gathering">
+<button id="meri-run" onclick="runMeri()">Ask</button>
+</div>
+
+<div id="meri-output" class="meri-output">
+Meri is standing by.
+</div>
+
+<div id="meri-link-wrap" class="meri-link-wrap" style="display:none;">
+<a id="meri-link" class="open" href="#">Open Tool</a>
+</div>
 </section>
 
 <div class="grid">
@@ -381,6 +459,134 @@ Built by <b>InTandem ToolWorks</b><br><br>
 </div>
 
 </div>
+
+<script>
+function runMeri() {
+  const input = document.getElementById("meri-input").value.trim().toLowerCase();
+  const output = document.getElementById("meri-output");
+  const linkWrap = document.getElementById("meri-link-wrap");
+  const link = document.getElementById("meri-link");
+
+  let response = "I’m not sure yet. Try asking about solar, signal, travel, hazards, or learning tools.";
+  let href = "";
+  let label = "Open Tool";
+
+  if (!input) {
+    output.textContent = "Tell me what you need, and I’ll point you in the right direction.";
+    linkWrap.style.display = "none";
+    return;
+  }
+
+  if (
+    input.includes("panel") ||
+    input.includes("solar") ||
+    input.includes("tilt") ||
+    input.includes("azimuth") ||
+    input.includes("sun")
+  ) {
+    response = "This sounds like a solar orientation task. Start with Panel Pointer.";
+    href = "https://panelpoint.ittworks.com";
+    label = "Open Panel Pointer";
+  }
+  else if (
+    input.includes("production") ||
+    input.includes("output") ||
+    input.includes("yield") ||
+    input.includes("generate")
+  ) {
+    response = "This sounds like a solar production estimate. Use Production.";
+    href = "https://production.ittworks.com";
+    label = "Open Production";
+  }
+  else if (
+    input.includes("off grid") ||
+    input.includes("offgrid") ||
+    input.includes("battery") ||
+    input.includes("inverter") ||
+    input.includes("system size") ||
+    input.includes("sizing")
+  ) {
+    response = "This sounds like system planning. Use OffGrid.";
+    href = "https://offgrid.ittworks.com";
+    label = "Open OffGrid";
+  }
+  else if (
+    input.includes("signal") ||
+    input.includes("cell") ||
+    input.includes("coverage") ||
+    input.includes("service") ||
+    input.includes("reception")
+  ) {
+    response = "This sounds like a signal and route awareness task. Start with TrueNorth.";
+    href = "https://truenorth.ittworks.com";
+    label = "Open TrueNorth";
+  }
+  else if (
+    input.includes("amenities") ||
+    input.includes("gas") ||
+    input.includes("food") ||
+    input.includes("route stop") ||
+    input.includes("coffee")
+  ) {
+    response = "This sounds like an amenities search. Use PogBait.";
+    href = "https://pogbait.ittworks.com";
+    label = "Open PogBait";
+  }
+  else if (
+    input.includes("overnight") ||
+    input.includes("parking") ||
+    input.includes("sleep") ||
+    input.includes("van") ||
+    input.includes("boondock")
+  ) {
+    response = "This sounds like an overnight planning task. Use VanLegit.";
+    href = "https://vanlegit.ittworks.com";
+    label = "Open VanLegit";
+  }
+  else if (
+    input.includes("hazard") ||
+    input.includes("weather alert") ||
+    input.includes("wildfire") ||
+    input.includes("earthquake") ||
+    input.includes("environmental risk")
+  ) {
+    response = "This sounds like a hazard scan. Use HasMatt.";
+    href = "https://hasmatt.ittworks.com";
+    label = "Open HasMatt";
+  }
+  else if (
+    input.includes("sky") ||
+    input.includes("constellation") ||
+    input.includes("stars") ||
+    input.includes("celestial") ||
+    input.includes("night sky")
+  ) {
+    response = "This sounds like a celestial reference task. Use Skywalker247.";
+    href = "https://skywalker247.ittworks.com";
+    label = "Open Skywalker247";
+  }
+  else if (
+    input.includes("typing") ||
+    input.includes("practice") ||
+    input.includes("learn") ||
+    input.includes("keyboard")
+  ) {
+    response = "This sounds like a learning and skill-building task. Use InTandem Typing.";
+    href = "https://intandem-typing.ittworks.com";
+    label = "Open InTandem Typing";
+  }
+
+  output.textContent = response;
+
+  if (href) {
+    link.href = href;
+    link.textContent = label;
+    linkWrap.style.display = "block";
+  } else {
+    linkWrap.style.display = "none";
+  }
+}
+</script>
 
 </body>
 </html>
