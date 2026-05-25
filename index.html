@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Navgenie | InTandem Toolbelt</title>
-<meta name="description" content="A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, situational awareness, and learning tools for the field.">
+<meta name="description" content="A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, situational awareness, learning tools, and Field Notes fiction by C. Lewis Verb.">
 <meta name="theme-color" content="#0f1416">
 
 <link rel="icon" href="logo.png">
@@ -328,7 +328,7 @@ h1{
     <h1>Navgenie</h1>
 
     <p class="subtitle">
-      A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, situational awareness, and learning tools for the field.
+      A simple guide into the InTandem Toolbelt. Choose the right tool for solar planning, travel planning, celestial reference, situational awareness, learning tools for the field, and Field Notes fiction by C. Lewis Verb.
     </p>
   </section>
 
@@ -337,7 +337,7 @@ h1{
     <div class="section-note">Describe what you need, and Meri will point you to the right tool.</div>
 
     <div class="meri-wrap">
-      <input id="meri-input" type="text" placeholder="Ask Meri... (e.g. point my panels, check signal)">
+      <input id="meri-input" type="text" placeholder="Ask Meri... (e.g. point my panels, check signal, open Field Notes)">
       <button id="meri-run" onclick="runMeri()">Ask</button>
     </div>
 
@@ -362,6 +362,19 @@ h1{
           <div class="tool-desc">Practice speed and accuracy with safe, optimistic, AI-ready typing passages.</div>
         </div>
         <a class="open" href="https://intandem-typing.ittworks.com">Open</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Field Notes</div>
+      <div class="section-note">Books, continuity broadcasts, and serialized fiction by C. Lewis Verb.</div>
+
+      <div class="tool">
+        <div class="tool-copy">
+          <div class="tool-name">Field Notes</div>
+          <div class="tool-desc">Read Quantum Grace, follow future chapters, and explore the growing fiction shelf.</div>
+        </div>
+        <a class="open" href="https://field-notes-beta.vercel.app">Open</a>
       </div>
     </div>
 
@@ -478,7 +491,7 @@ function runMeri() {
   const linkWrap = document.getElementById("meri-link-wrap");
   const link = document.getElementById("meri-link");
 
-  let response = "I’m not sure yet. Try asking about solar, signal, travel, hazards, or learning tools.";
+  let response = "I’m not sure yet. Try asking about solar, signal, travel, hazards, learning tools, or Field Notes.";
   let href = "";
   let label = "Open Tool";
 
@@ -489,6 +502,22 @@ function runMeri() {
   }
 
   if (
+    input.includes("field notes") ||
+    input.includes("quantum grace") ||
+    input.includes("book") ||
+    input.includes("books") ||
+    input.includes("story") ||
+    input.includes("stories") ||
+    input.includes("fiction") ||
+    input.includes("chapter") ||
+    input.includes("prologue") ||
+    input.includes("read")
+  ) {
+    response = "This sounds like a Field Notes request. Open Field Notes to read Quantum Grace and follow future chapters.";
+    href = "https://field-notes-beta.vercel.app";
+    label = "Open Field Notes";
+  }
+  else if (
     input.includes("panel") ||
     input.includes("solar") ||
     input.includes("tilt") ||
